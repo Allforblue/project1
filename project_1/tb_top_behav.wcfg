@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="tb_top_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="tb_top" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="2565000001fs"></ZoomEndTime>
+      <Cursor1Time time="995000000fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="252"></NameColumnWidth>
+      <ValueColumnWidth column_width="137"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="45" />
+   <wvobject fp_name="/tb_top/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_top/u_dut/u_riscv/u_core/mem_i_pc_o" type="array">
+      <obj_property name="ElementShortName">mem_i_pc_o[31:0]</obj_property>
+      <obj_property name="ObjectShortName">mem_i_pc_o[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_top/rst_sys" type="logic">
+      <obj_property name="ElementShortName">rst_sys</obj_property>
+      <obj_property name="ObjectShortName">rst_sys</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_top/rst_cpu" type="logic">
+      <obj_property name="ElementShortName">rst_cpu</obj_property>
+      <obj_property name="ObjectShortName">rst_cpu</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_top/u_dut/u_riscv/u_core/u_issue/u_regfile/\REGFILE.x0_zero_w " type="array">
+      <obj_property name="ElementShortName">\REGFILE.x0_zero_w [31:0]</obj_property>
+      <obj_property name="ObjectShortName">\REGFILE.x0_zero_w [31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_top/u_dut/u_riscv/u_core/u_issue/u_regfile/\REGFILE.x1_ra_w " type="array">
+      <obj_property name="ElementShortName">\REGFILE.x1_ra_w [31:0]</obj_property>
+      <obj_property name="ObjectShortName">\REGFILE.x1_ra_w [31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_top/u_dut/u_riscv/u_core/u_issue/u_regfile/\REGFILE.x2_sp_w " type="array">
+      <obj_property name="ElementShortName">\REGFILE.x2_sp_w [31:0]</obj_property>
+      <obj_property name="ObjectShortName">\REGFILE.x2_sp_w [31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_top/u_dut/u_riscv/u_core/u_issue/u_regfile/\REGFILE.x3_gp_w " type="array">
+      <obj_property name="ElementShortName">\REGFILE.x3_gp_w [31:0]</obj_property>
+      <obj_property name="ObjectShortName">\REGFILE.x3_gp_w [31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_top/u_dut/u_riscv/u_core/u_issue/u_regfile/\REGFILE.x4_tp_w " type="array">
+      <obj_property name="ElementShortName">\REGFILE.x4_tp_w [31:0]</obj_property>
+      <obj_property name="ObjectShortName">\REGFILE.x4_tp_w [31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_top/u_dut/u_riscv/u_core/u_issue/u_regfile/\REGFILE.x5_t0_w " type="array">
+      <obj_property name="ElementShortName">\REGFILE.x5_t0_w [31:0]</obj_property>
+      <obj_property name="ObjectShortName">\REGFILE.x5_t0_w [31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_top/u_dut/u_riscv/u_core/u_issue/u_regfile/\REGFILE.x6_t1_w " type="array">
+      <obj_property name="ElementShortName">\REGFILE.x6_t1_w [31:0]</obj_property>
+      <obj_property name="ObjectShortName">\REGFILE.x6_t1_w [31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_top/u_dut/u_riscv/u_core/u_issue/u_regfile/\REGFILE.x7_t2_w " type="array">
+      <obj_property name="ElementShortName">\REGFILE.x7_t2_w [31:0]</obj_property>
+      <obj_property name="ObjectShortName">\REGFILE.x7_t2_w [31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_top/u_dut/u_riscv/u_core/u_issue/u_regfile/\REGFILE.x8_s0_w " type="array">
+      <obj_property name="ElementShortName">\REGFILE.x8_s0_w [31:0]</obj_property>
+      <obj_property name="ObjectShortName">\REGFILE.x8_s0_w [31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_top/u_dut/u_riscv/u_core/u_issue/u_regfile/\REGFILE.x9_s1_w " type="array">
+      <obj_property name="ElementShortName">\REGFILE.x9_s1_w [31:0]</obj_property>
+      <obj_property name="ObjectShortName">\REGFILE.x9_s1_w [31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_top/u_dut/u_riscv/u_core/u_issue/u_regfile/\REGFILE.x10_a0_w " type="array">
+      <obj_property name="ElementShortName">\REGFILE.x10_a0_w [31:0]</obj_property>
+      <obj_property name="ObjectShortName">\REGFILE.x10_a0_w [31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_top/u_dut/u_riscv/u_core/u_issue/u_regfile/\REGFILE.x11_a1_w " type="array">
+      <obj_property name="ElementShortName">\REGFILE.x11_a1_w [31:0]</obj_property>
+      <obj_property name="ObjectShortName">\REGFILE.x11_a1_w [31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_top/u_dut/u_riscv/u_core/u_issue/u_regfile/\REGFILE.x12_a2_w " type="array">
+      <obj_property name="ElementShortName">\REGFILE.x12_a2_w [31:0]</obj_property>
+      <obj_property name="ObjectShortName">\REGFILE.x12_a2_w [31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_top/u_dut/u_riscv/u_core/u_issue/u_regfile/\REGFILE.x13_a3_w " type="array">
+      <obj_property name="ElementShortName">\REGFILE.x13_a3_w [31:0]</obj_property>
+      <obj_property name="ObjectShortName">\REGFILE.x13_a3_w [31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_top/u_dut/u_riscv/u_core/u_issue/u_regfile/\REGFILE.x14_a4_w " type="array">
+      <obj_property name="ElementShortName">\REGFILE.x14_a4_w [31:0]</obj_property>
+      <obj_property name="ObjectShortName">\REGFILE.x14_a4_w [31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_top/u_dut/u_riscv/u_core/u_issue/u_regfile/\REGFILE.x15_a5_w " type="array">
+      <obj_property name="ElementShortName">\REGFILE.x15_a5_w [31:0]</obj_property>
+      <obj_property name="ObjectShortName">\REGFILE.x15_a5_w [31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_top/u_dut/u_riscv/u_core/u_issue/u_regfile/\REGFILE.x16_a6_w " type="array">
+      <obj_property name="ElementShortName">\REGFILE.x16_a6_w [31:0]</obj_property>
+      <obj_property name="ObjectShortName">\REGFILE.x16_a6_w [31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_top/u_dut/u_riscv/u_core/u_issue/u_regfile/\REGFILE.x17_a7_w " type="array">
+      <obj_property name="ElementShortName">\REGFILE.x17_a7_w [31:0]</obj_property>
+      <obj_property name="ObjectShortName">\REGFILE.x17_a7_w [31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_top/u_dut/u_riscv/u_core/u_issue/u_regfile/\REGFILE.x18_s2_w " type="array">
+      <obj_property name="ElementShortName">\REGFILE.x18_s2_w [31:0]</obj_property>
+      <obj_property name="ObjectShortName">\REGFILE.x18_s2_w [31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_top/u_dut/u_riscv/u_core/u_issue/u_regfile/\REGFILE.x19_s3_w " type="array">
+      <obj_property name="ElementShortName">\REGFILE.x19_s3_w [31:0]</obj_property>
+      <obj_property name="ObjectShortName">\REGFILE.x19_s3_w [31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_top/u_dut/u_riscv/u_core/u_issue/u_regfile/\REGFILE.x20_s4_w " type="array">
+      <obj_property name="ElementShortName">\REGFILE.x20_s4_w [31:0]</obj_property>
+      <obj_property name="ObjectShortName">\REGFILE.x20_s4_w [31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_top/u_dut/u_riscv/u_core/u_issue/u_regfile/\REGFILE.x21_s5_w " type="array">
+      <obj_property name="ElementShortName">\REGFILE.x21_s5_w [31:0]</obj_property>
+      <obj_property name="ObjectShortName">\REGFILE.x21_s5_w [31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_top/u_dut/u_riscv/u_core/u_issue/u_regfile/\REGFILE.x22_s6_w " type="array">
+      <obj_property name="ElementShortName">\REGFILE.x22_s6_w [31:0]</obj_property>
+      <obj_property name="ObjectShortName">\REGFILE.x22_s6_w [31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_top/u_dut/u_riscv/u_core/u_issue/u_regfile/\REGFILE.x23_s7_w " type="array">
+      <obj_property name="ElementShortName">\REGFILE.x23_s7_w [31:0]</obj_property>
+      <obj_property name="ObjectShortName">\REGFILE.x23_s7_w [31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_top/u_dut/u_riscv/u_core/u_issue/u_regfile/\REGFILE.x24_s8_w " type="array">
+      <obj_property name="ElementShortName">\REGFILE.x24_s8_w [31:0]</obj_property>
+      <obj_property name="ObjectShortName">\REGFILE.x24_s8_w [31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_top/u_dut/u_riscv/u_core/u_issue/u_regfile/\REGFILE.x25_s9_w " type="array">
+      <obj_property name="ElementShortName">\REGFILE.x25_s9_w [31:0]</obj_property>
+      <obj_property name="ObjectShortName">\REGFILE.x25_s9_w [31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_top/u_dut/u_riscv/u_core/u_issue/u_regfile/\REGFILE.x26_s10_w " type="array">
+      <obj_property name="ElementShortName">\REGFILE.x26_s10_w [31:0]</obj_property>
+      <obj_property name="ObjectShortName">\REGFILE.x26_s10_w [31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_top/u_dut/u_riscv/u_core/u_issue/u_regfile/\REGFILE.x27_s11_w " type="array">
+      <obj_property name="ElementShortName">\REGFILE.x27_s11_w [31:0]</obj_property>
+      <obj_property name="ObjectShortName">\REGFILE.x27_s11_w [31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_top/u_dut/u_riscv/u_core/u_issue/u_regfile/\REGFILE.x28_t3_w " type="array">
+      <obj_property name="ElementShortName">\REGFILE.x28_t3_w [31:0]</obj_property>
+      <obj_property name="ObjectShortName">\REGFILE.x28_t3_w [31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_top/u_dut/u_riscv/u_core/u_issue/u_regfile/\REGFILE.x29_t4_w " type="array">
+      <obj_property name="ElementShortName">\REGFILE.x29_t4_w [31:0]</obj_property>
+      <obj_property name="ObjectShortName">\REGFILE.x29_t4_w [31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_top/u_dut/u_riscv/u_core/u_issue/u_regfile/\REGFILE.x30_t5_w " type="array">
+      <obj_property name="ElementShortName">\REGFILE.x30_t5_w [31:0]</obj_property>
+      <obj_property name="ObjectShortName">\REGFILE.x30_t5_w [31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_top/u_dut/u_riscv/u_core/u_issue/u_regfile/\REGFILE.x31_t6_w " type="array">
+      <obj_property name="ElementShortName">\REGFILE.x31_t6_w [31:0]</obj_property>
+      <obj_property name="ObjectShortName">\REGFILE.x31_t6_w [31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_top/u_dut/u_riscv/u_core/u_issue/u_regfile/\REGFILE.ra0_value_r " type="array">
+      <obj_property name="ElementShortName">\REGFILE.ra0_value_r [31:0]</obj_property>
+      <obj_property name="ObjectShortName">\REGFILE.ra0_value_r [31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_top/u_dut/u_riscv/u_core/u_issue/u_regfile/\REGFILE.rb0_value_r " type="array">
+      <obj_property name="ElementShortName">\REGFILE.rb0_value_r [31:0]</obj_property>
+      <obj_property name="ObjectShortName">\REGFILE.rb0_value_r [31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_top/u_dut/u_soc/u_io_wrapper/u_leds/led_o" type="array">
+      <obj_property name="ElementShortName">led_o[15:0]</obj_property>
+      <obj_property name="ObjectShortName">led_o[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_top/u_dut/u_soc/u_io_wrapper/u_leds/read_en_w" type="logic">
+      <obj_property name="ElementShortName">read_en_w</obj_property>
+      <obj_property name="ObjectShortName">read_en_w</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_top/u_dut/u_soc/u_io_wrapper/u_leds/write_en_w" type="logic">
+      <obj_property name="ElementShortName">write_en_w</obj_property>
+      <obj_property name="ObjectShortName">write_en_w</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_top/u_dut/u_soc/u_io_wrapper/u_leds/cfg_bvalid_o" type="logic">
+      <obj_property name="ElementShortName">cfg_bvalid_o</obj_property>
+      <obj_property name="ObjectShortName">cfg_bvalid_o</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_top/u_dut/u_soc/u_io_wrapper/u_leds/cfg_wready_o" type="logic">
+      <obj_property name="ElementShortName">cfg_wready_o</obj_property>
+      <obj_property name="ObjectShortName">cfg_wready_o</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_top/u_dut/u_soc/u_io_wrapper/u_leds/cfg_awready_o" type="logic">
+      <obj_property name="ElementShortName">cfg_awready_o</obj_property>
+      <obj_property name="ObjectShortName">cfg_awready_o</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_top/u_dut/u_riscv/u_axi/axi_bvalid_i" type="logic">
+      <obj_property name="ElementShortName">axi_bvalid_i</obj_property>
+      <obj_property name="ObjectShortName">axi_bvalid_i</obj_property>
+   </wvobject>
+</wave_config>

@@ -1,0 +1,186 @@
+//-----------------------------------------------------------------
+// Harvard Architecture TCM Memory Module
+//-----------------------------------------------------------------
+module tcm_mem
+(
+     input           clk_i
+    ,input           rst_i
+    ,input           mem_i_rd_i
+    ,input           mem_i_flush_i
+    ,input           mem_i_invalidate_i
+    ,input  [ 31:0]  mem_i_pc_i
+    ,input  [ 31:0]  mem_d_addr_i
+    ,input  [ 31:0]  mem_d_data_wr_i
+    ,input           mem_d_rd_i
+    ,input  [  3:0]  mem_d_wr_i
+    ,input           mem_d_cacheable_i
+    ,input  [ 10:0]  mem_d_req_tag_i
+    ,input           mem_d_invalidate_i
+    ,input           mem_d_writeback_i
+    ,input           mem_d_flush_i
+    ,input           axi_awvalid_i
+    ,input  [ 31:0]  axi_awaddr_i
+    ,input  [  3:0]  axi_awid_i
+    ,input  [  7:0]  axi_awlen_i
+    ,input  [  1:0]  axi_awburst_i
+    ,input           axi_wvalid_i
+    ,input  [ 31:0]  axi_wdata_i
+    ,input  [  3:0]  axi_wstrb_i
+    ,input           axi_wlast_i
+    ,input           axi_bready_i
+    ,input           axi_arvalid_i
+    ,input  [ 31:0]  axi_araddr_i
+    ,input  [  3:0]  axi_arid_i
+    ,input  [  7:0]  axi_arlen_i
+    ,input  [  1:0]  axi_arburst_i
+    ,input           axi_rready_i
+
+    ,output          mem_i_accept_o
+    ,output          mem_i_valid_o
+    ,output          mem_i_error_o
+    ,output [ 31:0]  mem_i_inst_o
+    ,output [ 31:0]  mem_d_data_rd_o
+    ,output          mem_d_accept_o
+    ,output          mem_d_ack_o
+    ,output          mem_d_error_o
+    ,output [ 10:0]  mem_d_resp_tag_o
+    ,output          axi_awready_o
+    ,output          axi_wready_o
+    ,output          axi_bvalid_o
+    ,output [  1:0]  axi_bresp_o
+    ,output [  3:0]  axi_bid_o
+    ,output          axi_arready_o
+    ,output          axi_rvalid_o
+    ,output [ 31:0]  axi_rdata_o
+    ,output [  1:0]  axi_rresp_o
+    ,output [  3:0]  axi_rid_o
+    ,output          axi_rlast_o
+);
+
+//-------------------------------------------------------------
+// AXI -> PMEM Interface
+//-------------------------------------------------------------
+wire          ext_accept_w;
+wire          ext_ack_w;
+wire [ 31:0]  ext_read_data_w;
+wire [  3:0]  ext_wr_w;
+wire          ext_rd_w;
+wire [  7:0]  ext_len_w;
+wire [ 31:0]  ext_addr_w;
+wire [ 31:0]  ext_write_data_w;
+
+tcm_mem_pmem u_conv (
+    .clk_i(clk_i), .rst_i(rst_i),
+    .axi_awvalid_i(axi_awvalid_i), .axi_awaddr_i(axi_awaddr_i), .axi_awid_i(axi_awid_i),
+    .axi_awlen_i(axi_awlen_i), .axi_awburst_i(axi_awburst_i), .axi_wvalid_i(axi_wvalid_i),
+    .axi_wdata_i(axi_wdata_i), .axi_wstrb_i(axi_wstrb_i), .axi_wlast_i(axi_wlast_i),
+    .axi_bready_i(axi_bready_i), .axi_arvalid_i(axi_arvalid_i), .axi_araddr_i(axi_araddr_i),
+    .axi_arid_i(axi_arid_i), .axi_arlen_i(axi_arlen_i), .axi_arburst_i(axi_arburst_i),
+    .axi_rready_i(axi_rready_i), .ram_accept_i(ext_accept_w), .ram_ack_i(ext_ack_w),
+    .ram_error_i(1'b0), .ram_read_data_i(ext_read_data_w),
+    .axi_awready_o(axi_awready_o), .axi_wready_o(axi_wready_o), .axi_bvalid_o(axi_bvalid_o),
+    .axi_bresp_o(axi_bresp_o), .axi_bid_o(axi_bid_o), .axi_arready_o(axi_arready_o),
+    .axi_rvalid_o(axi_rvalid_o), .axi_rdata_o(axi_rdata_o), .axi_rresp_o(axi_rresp_o),
+    .axi_rid_o(axi_rid_o), .axi_rlast_o(axi_rlast_o), .ram_wr_o(ext_wr_w), .ram_rd_o(ext_rd_w),
+    .ram_len_o(ext_len_w), .ram_addr_o(ext_addr_w), .ram_write_data_o(ext_write_data_w)
+);
+
+//-------------------------------------------------------------
+// Separate Memory Instances (Harvard)
+//-------------------------------------------------------------
+
+// Instruction ROM
+my_instr_rom u_rom (
+    .clk_i(clk_i),
+    .addr_i(mem_i_pc_i[15:2]),
+    .data_o(mem_i_inst_o)
+);
+
+// Data RAM
+wire [31:0] data_r_w;
+wire [13:0] muxed_ram_addr = ext_accept_w ? ext_addr_w[15:2] : mem_d_addr_i[15:2];
+wire [31:0] muxed_ram_data = ext_accept_w ? ext_write_data_w : mem_d_data_wr_i;
+wire [3:0]  muxed_ram_wr   = ext_accept_w ? ext_wr_w : mem_d_wr_i;
+
+my_data_ram u_ram_new (
+    .clk_i(clk_i),
+    .addr_i(muxed_ram_addr),
+    .data_i(muxed_ram_data),
+    .wr_i(muxed_ram_wr),
+    .data_o(data_r_w)
+);
+
+assign ext_read_data_w = data_r_w;
+
+//-------------------------------------------------------------
+// Control Logic
+//-------------------------------------------------------------
+reg mem_i_valid_q;
+always @ (posedge clk_i or posedge rst_i)
+    if (rst_i) mem_i_valid_q <= 1'b0;
+    else mem_i_valid_q <= mem_i_rd_i;
+
+assign mem_i_accept_o = 1'b1;
+assign mem_i_valid_o  = mem_i_valid_q;
+assign mem_i_error_o  = 1'b0;
+
+reg mem_d_accept_q;
+reg [10:0] mem_d_tag_q;
+reg mem_d_ack_q;
+reg ext_ack_q;
+
+always @ (posedge clk_i or posedge rst_i)
+    if (rst_i) mem_d_accept_q <= 1'b1;
+    else if (ext_rd_w || ext_wr_w != 4'b0) mem_d_accept_q <= 1'b0;
+    else mem_d_accept_q <= 1'b1;
+
+always @ (posedge clk_i or posedge rst_i)
+    if (rst_i) begin
+        mem_d_ack_q <= 1'b0;
+        mem_d_tag_q <= 11'b0;
+    end else if ((mem_d_rd_i || mem_d_wr_i != 4'b0 || mem_d_flush_i || mem_d_invalidate_i || mem_d_writeback_i) && mem_d_accept_o) begin
+        mem_d_ack_q <= 1'b1;
+        mem_d_tag_q <= mem_d_req_tag_i;
+    end else mem_d_ack_q <= 1'b0;
+
+always @ (posedge clk_i or posedge rst_i)
+    if (rst_i) ext_ack_q <= 1'b0;
+    else if ((ext_rd_w || ext_wr_w != 4'b0) && ext_accept_w) ext_ack_q <= 1'b1;
+    else ext_ack_q <= 1'b0;
+
+assign mem_d_ack_o       = mem_d_ack_q;
+assign mem_d_resp_tag_o  = mem_d_tag_q;
+assign mem_d_data_rd_o   = data_r_w;
+assign mem_d_error_o     = 1'b0;
+assign mem_d_accept_o    = mem_d_accept_q;
+assign ext_accept_w      = !mem_d_accept_q;
+assign ext_ack_w         = ext_ack_q;
+
+`ifdef verilator
+function write;
+    input [31:0] addr;
+    input [7:0]  data;
+begin
+    case (addr[1:0])
+    2'd0: u_ram_new.ram[addr/4][7:0]   = data;
+    2'd1: u_ram_new.ram[addr/4][15:8]  = data;
+    2'd2: u_ram_new.ram[addr/4][23:16] = data;
+    2'd3: u_ram_new.ram[addr/4][31:24] = data;
+    endcase
+end
+endfunction
+
+function [7:0] read;
+    input [31:0] addr;
+begin
+    case (addr[1:0])
+    2'd0: read = u_ram_new.ram[addr/4][7:0]; // ÐÞÕýÎª u_ram_new
+    2'd1: read = u_ram_new.ram[addr/4][15:8];
+    2'd2: read = u_ram_new.ram[addr/4][23:16];
+    2'd3: read = u_ram_new.ram[addr/4][31:24];
+    endcase
+end
+endfunction
+`endif
+
+endmodule

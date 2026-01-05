@@ -1,0 +1,50 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  --include "../../../../project_1.srcs/sources_1/imports/riscv_project1/core/riscv" \
+"../../../../project_1.srcs/sources_1/imports/riscv_project1/soc/axi4_arb.v" \
+"../../../../project_1.srcs/sources_1/imports/riscv_project1/soc/axi4_lite_tap.v" \
+"../../../../project_1.srcs/sources_1/imports/riscv_project1/soc/axi4_retime.v" \
+"../../../../project_1.srcs/sources_1/imports/riscv_project1/top_tcm_wrapper/dport_axi.v" \
+"../../../../project_1.srcs/sources_1/imports/riscv_project1/top_tcm_wrapper/dport_mux.v" \
+"../../../../project_1.srcs/sources_1/imports/riscv_project1/soc/gpio.v" \
+"../../../../project_1.srcs/sources_1/imports/riscv_project1/soc/io_wrapper.v" \
+"../../../../project_1.srcs/sources_1/imports/riscv_project1/soc/irq_ctrl.v" \
+"../../../../project_1.srcs/sources_1/imports/riscv_project1/soc/peripheral_digits.v" \
+"../../../../project_1.srcs/sources_1/imports/riscv_project1/soc/peripheral_keyboard.v" \
+"../../../../project_1.srcs/sources_1/imports/riscv_project1/soc/peripheral_led.v" \
+"../../../../project_1.srcs/sources_1/imports/riscv_project1/soc/peripheral_pwm.v" \
+"../../../../project_1.srcs/sources_1/imports/riscv_project1/soc/peripheral_switches.v" \
+"../../../../project_1.srcs/sources_1/imports/riscv_project1/soc/peripheral_watchdog.v" \
+"../../../../project_1.srcs/sources_1/imports/riscv_project1/core/riscv/riscv_alu.v" \
+"../../../../project_1.srcs/sources_1/imports/riscv_project1/core/riscv/riscv_core.v" \
+"../../../../project_1.srcs/sources_1/imports/riscv_project1/core/riscv/riscv_csr.v" \
+"../../../../project_1.srcs/sources_1/imports/riscv_project1/core/riscv/riscv_csr_regfile.v" \
+"../../../../project_1.srcs/sources_1/imports/riscv_project1/core/riscv/riscv_decode.v" \
+"../../../../project_1.srcs/sources_1/imports/riscv_project1/core/riscv/riscv_decoder.v" \
+"../../../../project_1.srcs/sources_1/imports/riscv_project1/core/riscv/riscv_divider.v" \
+"../../../../project_1.srcs/sources_1/imports/riscv_project1/core/riscv/riscv_exec.v" \
+"../../../../project_1.srcs/sources_1/imports/riscv_project1/core/riscv/riscv_fetch.v" \
+"../../../../project_1.srcs/sources_1/imports/riscv_project1/core/riscv/riscv_issue.v" \
+"../../../../project_1.srcs/sources_1/imports/riscv_project1/core/riscv/riscv_lsu.v" \
+"../../../../project_1.srcs/sources_1/imports/riscv_project1/core/riscv/riscv_mmu.v" \
+"../../../../project_1.srcs/sources_1/imports/riscv_project1/core/riscv/riscv_multiplier.v" \
+"../../../../project_1.srcs/sources_1/imports/riscv_project1/core/riscv/riscv_pipe_ctrl.v" \
+"../../../../project_1.srcs/sources_1/imports/riscv_project1/core/riscv/riscv_regfile.v" \
+"../../../../project_1.srcs/sources_1/new/riscv_soc_top.v" \
+"../../../../project_1.srcs/sources_1/imports/riscv_project1/top_tcm_axi/src_v/riscv_tcm_top.v" \
+"../../../../project_1.srcs/sources_1/imports/riscv_project1/core/riscv/riscv_xilinx_2r1w.v" \
+"../../../../project_1.srcs/sources_1/imports/riscv_project1/soc/soc.v" \
+"../../../../project_1.srcs/sources_1/imports/riscv_project1/soc/spi_lite.v" \
+"../../../../project_1.srcs/sources_1/imports/riscv_project1/top_tcm_wrapper/tcm_mem.v" \
+"../../../../project_1.srcs/sources_1/imports/riscv_project1/top_tcm_wrapper/tcm_mem_pmem.v" \
+"../../../../project_1.srcs/sources_1/imports/riscv_project1/top_tcm_wrapper/tcm_mem_ram.v" \
+"../../../../project_1.srcs/sources_1/imports/riscv_project1/soc/timer.v" \
+"../../../../project_1.srcs/sources_1/imports/riscv_project1/soc/uart_lite.v" \
+
+sv xil_defaultlib  --include "../../../../project_1.srcs/sources_1/imports/riscv_project1/core/riscv" \
+"../../../../project_1.srcs/sim_1/new/tb_top.sv" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort
